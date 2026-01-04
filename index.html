@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Messenger</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>QR Code Messenger</h1>
+            <p>Generate and decode QR codes from text messages</p>
+        </header>
+
+        <!-- Generate QR Code Section -->
+        <section class="card">
+            <h2>Generate QR Code</h2>
+            <div class="input-group">
+                <label for="messageInput">Enter your message:</label>
+                <textarea 
+                    id="messageInput" 
+                    placeholder="Type your message here..."
+                    rows="4"
+                ></textarea>
+                <span id="errorMessage" class="error-message"></span>
+            </div>
+            <button id="generateBtn" class="btn btn-primary">Generate QR Code</button>
+            
+            <div id="qrcodeDisplay" class="qrcode-display hidden">
+                <div id="qrcode"></div>
+                <button id="downloadBtn" class="btn btn-secondary">Download QR Code</button>
+            </div>
+        </section>
+
+        <!-- Decode QR Code Section -->
+        <section class="card">
+            <h2>Decode QR Code</h2>
+            <div class="decode-options">
+                <button id="uploadBtn" class="btn btn-primary">Upload QR Code Image</button>
+                <input type="file" id="fileInput" accept="image/*" class="hidden">
+            </div>
+            
+            <!-- Added hidden reader div for Html5Qrcode library -->
+            <div id="reader" class="hidden"></div>
+            
+            <div id="decodedResult" class="decoded-result hidden">
+                <h3>Decoded Message:</h3>
+                <div id="decodedText" class="decoded-text"></div>
+                <button id="copyBtn" class="btn btn-secondary">Copy to Clipboard</button>
+            </div>
+        </section>
+
+        <footer>
+            <p>Built with HTML, CSS, and JavaScript</p>
+        </footer>
+    </div>
+
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
